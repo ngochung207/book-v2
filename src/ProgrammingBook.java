@@ -30,11 +30,11 @@ public class ProgrammingBook extends Books{
     @Override
     public String toString() {
         return "ProgrammingBook" +'\n' +
-                "Ma sach = " + super.getBookCode() + '\t' +
-                "Ten sach = " + super.getName() + '\t' +
-                "Tac gia = " + super.getAuthor() + '\t' +
-                "Gia tien = " + super.getPrice() + '\t' +
-                "Ngon ngu = " + language + '\t' +
-                "Cong nghe = " + framework + '\n';
+                "Ma sach: " + super.getBookCode() + '\t' +
+                "Ten sach: " + super.getName() + '\t' +
+                "Tac gia: " + super.getAuthor() + '\t' +
+                "Gia tien: " + super.getPrice() + '\t' +
+                "Ngon ngu: " + language + '\t' +
+                "Cong nghe: " + framework + '\n';
     }
 }

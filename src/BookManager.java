@@ -1,4 +1,3 @@
-import java.awt.print.Book;
 import java.util.Arrays;
 
 public class BookManager {
@@ -36,7 +35,7 @@ public class BookManager {
     @Override
     public String toString() {
         return "BookManager{" +
-                "store=" + Arrays.toString(store) +
+                "store: " + Arrays.toString(store) +
                 '}';
     }
 }

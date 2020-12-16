@@ -20,10 +20,10 @@ public class FictionBook extends Books{
     @Override
     public String toString() {
         return "FictionBook" + '\n' +
-                "Ma sach = " + super.getBookCode() + '\t' +
-                "Ten sach = " + super.getName() + '\t' +
-                "Tac gia = " + super.getAuthor() + '\t' +
-                "Gia tien = " + super.getPrice() + '\t' +
-                "Category = " + category + '\n';
+                "Ma sach: " + super.getBookCode() + '\t' +
+                "Ten sach: " + super.getName() + '\t' +
+                "Tac gia: " + super.getAuthor() + '\t' +
+                "Gia tien: " + super.getPrice() + '\t' +
+                "Category: " + category + '\n';
     }
 }
