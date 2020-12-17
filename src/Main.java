@@ -1,3 +1,4 @@
+import java.awt.print.Book;
 import java.util.Scanner;
 
 /**
@@ -21,15 +22,22 @@ public class Main {
                 case 2:
                     System.out.println("tim kiem gia tien theo ten sach");
                     String bookCode = sc.nextLine();
-                    int index = findIndexByName(bookCode);
+                    int index = listBooks.findIndexByName(bookCode);
                     if (index != -1) {
-                        System.out.println("Sach: " + getNameByIndex(index) + " co gia la: " + getPriceByIndex(index));
+                        System.out.println("Sach: " + listBooks.getNameByIndex(index) + " co gia la: " + listBooks.getPriceByIndex(index));
                     } else System.out.println("Khong tim thay ten sach");
                     break;
                 case 3:
-                    display(sortArray(listBooks.getStore()));
+                    display(listBooks.sortArray(listBooks.getStore()));
                     break;
                 case 4:
+                    System.out.println("Tổng tiền store là: " + listBooks.getSumTotal());
+                    break;
+                case 5:
+                    String str = "Java";
+                    System.out.println("Tổng số sách có language " + str + " là: " + listBooks.getCountByLanguage("Java"));
+                    break;
+                case 6:
                     System.exit(0);
                     break;
                 default:
@@ -41,10 +49,12 @@ public class Main {
 
     public static void menu(){
         System.out.println("---------Menu List Books---------");
-        System.out.println("01. Nhap gia moi");
-        System.out.println("02. Tim kiem gia tien theo ten sach nhap vao");
-        System.out.println("03. Sort theo gia tien");
-        System.out.println("04. Thoat");
+        System.out.println("01. Nhập sách mới");
+        System.out.println("02. Tìm kiếm giá tiền theo tên sách");
+        System.out.println("03. Sort theo giá tiền");
+        System.out.println("04. Tính tổng tiền");
+        System.out.println("05. Tính tổng sách có Language");
+        System.out.println("06. Thoat");
     }
 
     public static void addNew(){
@@ -64,15 +74,15 @@ public class Main {
         String framework = sc.nextLine();
         System.out.print("Nhap vao category: ");
         String category = sc.nextLine();
-//        sc.close();
+
         if (category.length() != 0) {
-            ProgrammingBook proBook = new ProgrammingBook(bookCode, name, author, price, language, framework);
+            Books proBook = new ProgrammingBook(bookCode, name, author, price, language, framework);
             listBooks.addNewBookToManager(proBook);
         } else {
-            FictionBook ficBook = new FictionBook(bookCode, name, author, price, category);
+            Books ficBook = new FictionBook(bookCode, name, author, price, category);
             listBooks.addNewBookToManager(ficBook);
         }
-        System.out.println("---->> Them moi thanh cong");
+        System.out.println("---->> Them moi thanh cong <<----");
     }
 
     public static void display(Books[] array){
@@ -83,47 +93,4 @@ public class Main {
         }
     }
 
-    public static Books[] sortArray(Books[] store){
-        for (int i = 0; i < store.length-1; i++) {
-            if (store[i] != null) {
-                Books temp = store[i];
-                for (int j = i + 1; j < store.length; j++) {
-                    if (store[j] != null) {
-                        if (temp.getPrice() > store[j].getPrice()) {
-                            store[i] = store[j];
-                            store[j] = temp;
-                            temp = store[i];
-                        }
-                    }
-                }
-            }
-        }
-        return store;
-    }
-
-    public static int findIndexByName(String codeBook){
-        for (int i = 0; i < listBooks.getStore().length; i++) {
-            if (listBooks.getStore()[i] != null) {
-                if (listBooks.getStore()[i].getBookCode().equals(codeBook)) {
-                    return i;
-                }
-            }
-        }
-        return -1;
-    }
-
-    public static double getPriceByIndex(int index) {
-        if (index != -1) {
-            return listBooks.getStore()[index].getPrice();
-        } else {
-            return 0;
-        }
-    }
-    public static String getNameByIndex(int index) {
-        if (index != -1) {
-            return listBooks.getStore()[index].getName();
-        } else {
-            return "";
-        }
-    }
 }
