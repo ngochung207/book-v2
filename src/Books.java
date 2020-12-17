@@ -48,7 +48,7 @@ public class Books {
 
     @Override
     public String toString() {
-        return  "bookCode: " + bookCode + '\t' +
+        return "bookCode: " + bookCode + '\t' +
                 "name: " + name + '\t' +
                 "price: " + price +
                 "author: " + author + '\t';

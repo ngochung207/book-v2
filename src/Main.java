@@ -1,4 +1,3 @@
-import java.awt.print.Book;
 import java.util.Scanner;
 
 /**
@@ -8,6 +7,7 @@ import java.util.Scanner;
  */
 public class Main {
     static BookManager listBooks = new BookManager();
+
     public static void main(String[] args) {
         // Khu vuc khai bao:
         Scanner sc = new Scanner(System.in);
@@ -15,7 +15,7 @@ public class Main {
         do {
             menu();
             chose = Integer.parseInt(sc.nextLine());
-            switch (chose){
+            switch (chose) {
                 case 1:
                     addNew();
                     break;
@@ -47,7 +47,7 @@ public class Main {
         while (true);
     }
 
-    public static void menu(){
+    public static void menu() {
         System.out.println("---------Menu List Books---------");
         System.out.println("01. Nhập sách mới");
         System.out.println("02. Tìm kiếm giá tiền theo tên sách");
@@ -57,7 +57,7 @@ public class Main {
         System.out.println("06. Thoat");
     }
 
-    public static void addNew(){
+    public static void addNew() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap vao ma sach: ");
         String bookCode = sc.nextLine();
@@ -85,12 +85,11 @@ public class Main {
         System.out.println("---->> Them moi thanh cong <<----");
     }
 
-    public static void display(Books[] array){
+    public static void display(Books[] array) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] != null) {
                 System.out.println(array[i].toString());
             }
         }
     }
-
 }

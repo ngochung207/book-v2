@@ -20,8 +20,8 @@ public class BookManager {
         }
     }
 
-    public Books[] sortArray(Books[] store){
-        for (int i = 0; i < store.length-1; i++) {
+    public Books[] sortArray(Books[] store) {
+        for (int i = 0; i < store.length - 1; i++) {
             if (store[i] != null) {
                 Books temp = store[i];
                 for (int j = i + 1; j < store.length; j++) {
@@ -38,7 +38,7 @@ public class BookManager {
         return store;
     }
 
-    public int findIndexByName(String codeBook){
+    public int findIndexByName(String codeBook) {
         for (int i = 0; i < this.getStore().length; i++) {
             if (this.getStore()[i] != null) {
                 if (this.getStore()[i].getBookCode().equals(codeBook)) {
@@ -65,21 +65,21 @@ public class BookManager {
         }
     }
 
-    public double getSumTotal(){
+    public double getSumTotal() {
         double sum = 0;
-        for (Books element: this.getStore()
-             ) {
-            if (element!=null){
+        for (Books element : this.getStore()
+        ) {
+            if (element != null) {
                 sum += element.getPrice();
             }
         }
         return sum;
     }
 
-    public int getCountByLanguage(String str){
+    public int getCountByLanguage(String str) {
         int count = 0;
-        for (Books element: this.getStore()
-             ) {
+        for (Books element : this.getStore()
+        ) {
             if (element instanceof ProgrammingBook) {
                 ProgrammingBook i = (ProgrammingBook) element;
                 if (i.getLanguage() != null) {

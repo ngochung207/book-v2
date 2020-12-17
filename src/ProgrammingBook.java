@@ -1,4 +1,4 @@
-public class ProgrammingBook extends Books{
+public class ProgrammingBook extends Books {
     private String language;
     private String framework;
 
@@ -29,7 +29,7 @@ public class ProgrammingBook extends Books{
 
     @Override
     public String toString() {
-        return "ProgrammingBook" +'\n' +
+        return "ProgrammingBook" + '\n' +
                 "Ma sach: " + super.getBookCode() + '\t' +
                 "Ten sach: " + super.getName() + '\t' +
                 "Tac gia: " + super.getAuthor() + '\t' +
