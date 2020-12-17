@@ -10,21 +10,20 @@ public class Main {
     public static void main(String[] args) {
         // Khu vuc khai bao:
         Scanner sc = new Scanner(System.in);
-        int chose;
+        Integer chose = 0;
         do {
             menu();
-            chose = sc.nextInt();
+            chose = Integer.parseInt(sc.nextLine());
             switch (chose){
                 case 1:
                     addNew();
                     break;
                 case 2:
                     System.out.println("tim kiem gia tien theo ten sach");
-                    String bookName = sc.nextLine();
-                    int index = findIndexByName(bookName);
-                    double price = getPriceByIndex(index);
+                    String bookCode = sc.nextLine();
+                    int index = findIndexByName(bookCode);
                     if (index != -1) {
-                        System.out.println("Sach: " + bookName + " co gia la: " + price);
+                        System.out.println("Sach: " + getNameByIndex(index) + " co gia la: " + getPriceByIndex(index));
                     } else System.out.println("Khong tim thay ten sach");
                     break;
                 case 3:
@@ -102,16 +101,29 @@ public class Main {
         return store;
     }
 
-    public static int findIndexByName(String name){
+    public static int findIndexByName(String codeBook){
         for (int i = 0; i < listBooks.getStore().length; i++) {
-            if (listBooks.getStore()[i].getName() == name){
-                return i;
+            if (listBooks.getStore()[i] != null) {
+                if (listBooks.getStore()[i].getBookCode().equals(codeBook)) {
+                    return i;
+                }
             }
         }
         return -1;
     }
 
-    public static double getPriceByIndex(int index){
-        return listBooks.getStore()[index].getPrice();
+    public static double getPriceByIndex(int index) {
+        if (index != -1) {
+            return listBooks.getStore()[index].getPrice();
+        } else {
+            return 0;
+        }
+    }
+    public static String getNameByIndex(int index) {
+        if (index != -1) {
+            return listBooks.getStore()[index].getName();
+        } else {
+            return "";
+        }
     }
 }
