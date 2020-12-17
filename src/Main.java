@@ -20,6 +20,10 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("tim kiem gia tien theo ten sach");
+                    String bookName = sc.nextLine();
+                    int index = findIndexByName(bookName);
+                    double price = getPriceByIndex(index);
+                    System.out.println("Sach: " + bookName + " co gia la: " + price);
                     break;
                 case 3:
                     display(sortArray(listBooks.getStore()));
@@ -94,5 +98,17 @@ public class Main {
             }
         }
         return store;
+    }
+
+    public static int findIndexByName(String name){
+        for (int i = 0; i < listBooks.getStore().length; i++) {
+            if (listBooks.getStore()[i].getName() == name){
+                return i;
+            }
+        }
+    }
+
+    public static double getPriceByIndex(int index){
+        return listBooks.getStore()[index].getPrice();
     }
 }
